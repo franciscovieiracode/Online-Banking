@@ -9,6 +9,13 @@ import { ShowProfileComponent } from './components/profile/show-profile/show-pro
 import { EditProfileComponent } from './components/profile/edit-profile/edit-profile.component';
 import { HomePageComponent } from './components/landing-page/home-page/home-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './components/info/about/about.component';
+import { FaqComponent } from './components/info/faq/faq.component';
+import { GetStartedComponent } from './components/info/get-started/get-started.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginStatusComponent } from './components/auth/login-status/login-status.component';
+
 
 @NgModule({
   declarations: [
@@ -17,14 +24,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     ShowProfileComponent,
     EditProfileComponent,
-    HomePageComponent
+    HomePageComponent,
+    AboutComponent,
+    FaqComponent,
+    GetStartedComponent,
+    RegisterComponent,
+    LoginStatusComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoginStatusComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

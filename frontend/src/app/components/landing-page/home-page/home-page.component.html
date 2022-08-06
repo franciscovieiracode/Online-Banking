@@ -1,1 +1,51 @@
 <app-header></app-header>
+<div class="container-fluid p-0 mt-2">
+    <div class="container">
+        <p class="title display-6 pb-2">BPI NET</p>
+        <form #formData="ngForm">
+            <div class="form-group row pb-2">
+                <div class="col-sm-7">
+                  <input type="text" required class="form-control" id="inputEmail" placeholder="Client Nº" name="clientN" [(ngModel)]="clientN" #clientNControl="ngModel" [maxLength]="9" minlength="9">
+                  <div *ngIf="clientNControl.touched && !clientNControl.valid">
+                    <div *ngIf="clientNControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="clientNControl.errors?.['minlength']">
+                        <div class="alert alert-danger mt-1" role="alert">9 digits number</div>
+                    </div>
+                </div>
+                </div>
+
+              </div>
+            <div class="form-group row pb-2">
+              <div class="col-sm-7">
+                <input type="password" required class="form-control" id="inputPassword" placeholder="Password" name="password" [(ngModel)]="password" #passwordControl="ngModel" minlength="8">
+                <div *ngIf="passwordControl.touched && !passwordControl.valid">
+                    <div *ngIf="passwordControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="passwordControl.errors?.['minlength']">
+                        <div class="alert alert-danger mt-1" role="alert">8 digits number!</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            <div class="form-group row">
+                <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+                    <div class="alert alert-danger mt-1" role="alert">{{errorMessage}}</div>
+                </div>
+                <div class="col-sm-7 d-flex justify-content-end">
+                    <button type="button" class="botao btn btn-primary" (click)="login()">Login</button>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-6">
+                    <a href="" class="forgot">Forgot your password?</a>
+                </div>
+              </div>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -5,19 +5,16 @@
         </a>
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-        <div *ngIf="false" class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none" >About me</button></li>
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none" >Portfolio</button></li>
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none">Contact</button></li>
+        <div *ngIf="status.getStatus() == false" class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item mb-2"><button class="button nav-link btn shadow-none" (click)="register()">Register now</button></li>
             </ul>
         </div>
 
-        <div *ngIf="true" class="collapse navbar-collapse" id="navbarResponsive">
+        <div *ngIf="status.getStatus() == true" class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto my-2 my-lg-0">
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none" >Logout</button></li>
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none" >Portfolio</button></li>
-                <li class="nav-item px-2"><button class="button nav-link btn shadow-none">Contact</button></li>
+                <li class="nav-item px-3"><button class="button nav-link btn shadow-none" >Profile</button></li>
+                <li class="nav-item px-3"><button class="button nav-link btn shadow-none" (click)="logout()">Logout</button></li>
             </ul>
         </div>
     </div>

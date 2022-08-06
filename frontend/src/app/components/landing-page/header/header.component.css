@@ -1,7 +1,15 @@
 .button:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
 .button{
     border: 0;
+}
+
+
+@media (max-width: 576px) {  
+    .imgLogo{
+        width: 14rem;
+        height: auto;
+    }
 }

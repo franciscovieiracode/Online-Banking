@@ -1,0 +1,35 @@
+.container-fluid{
+    background-color: #D98324;
+    background-image: linear-gradient(315deg, #D98324 0%, #f53803 90%);
+}
+.container{
+    width: 52%;
+    height: 25rem;
+}
+.title{
+    padding-top: 10%;
+    color: white;
+    font-weight: 400;
+}
+
+.botao{
+    background-color: darkblue;
+    width: 45%;
+}
+
+.alert {
+    margin-bottom: 1px;
+    height: 30px;
+    line-height:30px;
+    padding:0px 15px;
+  }
+
+  .forgot{
+    color: aliceblue;
+}
+
+@media (max-width: 576px) {  
+    .container{
+        padding-top: 15%;
+    }
+}

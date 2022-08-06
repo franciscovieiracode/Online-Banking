@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  clientN: string;
+  password: string;
+  errorMessage:any;
+
+  constructor() {
+    this.clientN="";
+    this.password="";
+   }
 
   ngOnInit(): void {
+  }
+
+  login(){
+    alert(123)    
   }
 
 }
