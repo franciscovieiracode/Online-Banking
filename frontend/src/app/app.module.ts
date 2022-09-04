@@ -15,6 +15,8 @@ import { FaqComponent } from './components/info/faq/faq.component';
 import { GetStartedComponent } from './components/info/get-started/get-started.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { LoginStatusComponent } from './components/auth/login-status/login-status.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.interceptor';
 
 
 @NgModule({
@@ -35,9 +37,10 @@ import { LoginStatusComponent } from './components/auth/login-status/login-statu
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [LoginStatusComponent],
+  providers: [LoginStatusComponent,{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

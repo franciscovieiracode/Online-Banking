@@ -1,1 +1,6 @@
-<p>show-profile works!</p>
+<app-header></app-header>
+<div *ngIf="user" class="container">
+    <div>{{user.name}}</div>
+    <div>{{user.email}}</div>
+</div>
+<div *ngIf="errorMessage">User Not Found</div>

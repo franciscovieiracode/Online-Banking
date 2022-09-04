@@ -1,1 +1,123 @@
-<p>register works!</p>
+<app-header></app-header>
+<div class="container-fluid p-0 mt-2">
+<div class="container">
+    <p class="title display-6 pb-2">Register</p>
+    <form #formData="ngForm">
+            {{ '' // name }}
+            <div class="form-group row pb-2">
+                <div class="col-sm-7">
+                  <input type="text" required class="form-control" id="inputName" placeholder="Full Name" name="name" [(ngModel)]="name" #nameControl="ngModel">
+                  <div *ngIf="nameControl.touched && !nameControl.valid">
+                    <div *ngIf="nameControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="nameControl.errors?.['minlength']">
+                        <div class="alert alert-danger mt-1" role="alert">9 digits number</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            {{ '' // email }}
+            <div class="form-group row pb-2">
+                <div class="col-sm-7">
+                  <input type="email" required class="form-control" id="inputEmail" placeholder="Email" name="email" [(ngModel)]="email" #emailControl="ngModel" minlength="8" [email]="true">
+                  <div *ngIf="emailControl.touched && !emailControl.valid">
+                    <div *ngIf="emailControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="emailControl.errors?.['email']">
+                        <div class="alert alert-danger mt-1" role="alert">Invalid email!</div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            {{ '' // nif }}
+            <div class="form-group row pb-2">
+              <div class="col-sm-7">
+                <input type="text" required class="form-control" id="inputNif" placeholder="NIF" name="nif" [(ngModel)]="nif" #nifControl="ngModel" maxlength="9" size="9" minlength="9">
+                <div *ngIf="nifControl.touched && !nifControl.valid">
+                    <div *ngIf="nifControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="nifControl.errors?.['minlength'] || nifControl.errors?.['maxLength']">
+                        <div class="alert alert-danger mt-1" role="alert">9 digits number!</div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+            {{ '' // address }}
+            <div class="form-group row pb-2">
+                <div class="col-sm-3">
+                    <input type="text" required class="form-control" id="inputDistrict" placeholder="District" name="district" [(ngModel)]="district" #districtControl="ngModel">
+                    <div *ngIf="districtControl.touched && !districtControl.valid">
+                        <div *ngIf="districtControl.errors?.['required']">
+                            <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <input type="text" required class="form-control" id="inputCity" placeholder="City" name="city" [(ngModel)]="city" #cityControl="ngModel">
+                    <div *ngIf="cityControl.touched && !cityControl.valid">
+                        <div *ngIf="cityControl.errors?.['required']">
+                            <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-7">
+                    <input type="text" required class="form-control mt-2" id="inputStreet" placeholder="Street" name="street" [(ngModel)]="street" #streetControl="ngModel">
+                    <div *ngIf="streetControl.touched && !streetControl.valid">
+                        <div *ngIf="streetControl.errors?.['required']">
+                            <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{ '' // cellphone }}
+            <div class="form-group row pb-2">
+                <div class="col-sm-7">
+                  <input type="text" required class="form-control" id="inputCellphone" placeholder="Cellphone" name="cellphone" [(ngModel)]="cellphone" #cellphoneControl="ngModel" minlength="9" maxlength="14">
+                  <div *ngIf="cellphoneControl.touched && !cellphoneControl.valid">
+                    <div *ngIf="cellphoneControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="cellphoneControl.errors?.['minlength']">
+                        <div class="alert alert-danger mt-1" role="alert">Minimum 9 digits</div>
+                    </div>
+                    <div *ngIf="cellphoneControl.errors?.['maxLength']">
+                        <div class="alert alert-danger mt-1" role="alert">Maximum 14 digits</div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+              {{ '' // password }}
+              <div class="form-group row pb-2">
+                <div class="col-sm-7">
+                  <input type="password" required class="form-control" id="inputPassword" placeholder="Password" name="password" [(ngModel)]="password" #passwordControl="ngModel" minlength="8" maxlength="30">
+                  <div *ngIf="passwordControl.touched && !passwordControl.valid">
+                    <div *ngIf="passwordControl.errors?.['required']">
+                        <div class="alert alert-danger mt-1" role="alert">Required field!</div>
+                    </div>
+                    <div *ngIf="passwordControl.errors?.['minlength']">
+                        <div class="alert alert-danger mt-1" role="alert">Minimum 8 digits</div>
+                    </div>
+                </div>
+                </div>
+              </div>
+
+            <div class="form-group row">
+                <div *ngIf="errorMessage" class="col-sm-7 mb-1">
+                    <div class="alert alert-danger center-block" role="alert">{{errorMessage}}</div>
+                </div>
+                <div class="col-sm-7 d-flex justify-content-end">
+                    <button type="button" class="botao btn btn-primary" (click)="register()">Register</button>
+                </div>
+              </div>
+        </form>
+</div>
+</div>
+<app-footer></app-footer>

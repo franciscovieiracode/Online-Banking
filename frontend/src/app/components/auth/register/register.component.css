@@ -1,0 +1,26 @@
+.container-fluid{
+    background-color: #D98324;
+    background-image: linear-gradient(315deg, #D98324 0%, #f53803 90%);
+}
+
+.container{
+    width: 52%;
+    height: 32rem;
+}
+
+.title{
+    padding-top: 5%;
+    color: white;
+    font-weight: 400;
+}
+.alert{
+    font-size: 12px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+
+}
+.botao{
+    background-color: darkblue;
+    width: 45%;
+}

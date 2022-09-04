@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { LoginStatusComponent } from '../../auth/login-status/login-status.component';
 
 @Component({
@@ -8,15 +10,15 @@ import { LoginStatusComponent } from '../../auth/login-status/login-status.compo
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(public status: LoginStatusComponent) { }
+  constructor(public status: LoginStatusComponent, private router: Router, private authRestService:AuthService) { }
 
   ngOnInit(): void {
   }
   register(){
-    this.status.loggedIn();
+    this.router.navigate(['/register'])
   }
 
   logout(){    
-    this.status.loggedOut()  
+    this.authRestService.logout();
   }
 }

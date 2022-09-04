@@ -7,22 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginStatusComponent implements OnInit {
 
-  isLoggedIn:boolean = false;
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  loggedIn(){
-    this.isLoggedIn = true;
-  }
+  getStatus(){
 
-  loggedOut(){
-    this.isLoggedIn=false;
-  }
+    let isLoggedIn:boolean = false
 
-  getStatus():boolean{
-    return this.isLoggedIn
+    if (localStorage.getItem('access_token')!=null)
+      isLoggedIn =true
+
+
+    return isLoggedIn;
   }
 }
